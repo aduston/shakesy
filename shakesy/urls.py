@@ -4,5 +4,5 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^experiment_1$', 'main.views.experiment_1'),
+    url(r'^experiment_1$', 'experiment_1.views.index'),
 )

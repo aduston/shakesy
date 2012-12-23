@@ -3,7 +3,7 @@ from django.template.context import RequestContext
 from django.conf import settings
 import urllib
 
-def experiment_1(request):
+def index(request):
     yt_query_string = urllib.urlencode(
         { "enablejsapi": "1",
           "origin": settings.ORIGIN })

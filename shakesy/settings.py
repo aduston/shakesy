@@ -76,7 +76,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    "main",
+    "experiment_1",
     "compressor",
 )
 
