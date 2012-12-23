@@ -1,0 +1,17 @@
+{% load static from staticfiles %}
+{% load url from future %}
+{% load compress %}
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+  </head>
+  <body>
+    <iframe id="player" width="640" height="480" src="http://www.youtube.com/embed/1kuF1-tyaAE?{{yt_query_string}}" frameborder="0"></iframe>
+    <script type="text/javascript" src="{% static 'js/jquery-1.8.2.min.js' %}"></script>
+    {% compress js %}
+    <script type="text/coffeescript" src="{% static 'coffee/eventedvideo.js.coffee' %}"></script>
+    <script type="text/coffeescript" src="{% static 'coffee/experiment_1.js.coffee' %}"></script>
+    {% endcompress %}
+  </body>
+</html>
