@@ -7,7 +7,6 @@ class ExecutedTrack
     if @curIndex_ != -1 && !@curTimeRange_().contains(playheadTime)
       @track.event(@curTimeRange_().data, false)
     return @executeNoCurIndex_(playheadTime) if @curIndex_ == -1
-    return if @curTimeRange_().contains(playheadTime)
     nextTimeRange = @track.timeRanges[@curIndex_ + 1]
     return if @curTimeRange_().startsBefore(playheadTime) &&
       (!nextTimeRange || nextTimeRange.startsAfter(playheadTime))
