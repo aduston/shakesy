@@ -34,6 +34,7 @@ STATIC_ROOT = _rel("collected")
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     _rel("static"),
+    _rel("jstest/static")
 )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -64,7 +65,8 @@ ROOT_URLCONF = 'shakesy.urls'
 WSGI_APPLICATION = 'shakesy.wsgi.application'
 
 TEMPLATE_DIRS = (
-    _rel("templates")
+    _rel("templates"),
+    _rel("jstest/templates")
 )
 
 INSTALLED_APPS = (

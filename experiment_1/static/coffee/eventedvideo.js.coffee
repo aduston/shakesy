@@ -24,3 +24,5 @@ DATA_KEY = 'eventedVideo'
       data = $this.data(DATA_KEY)
       $this.data(DATA_KEY, data = new EventedVideo(this)) if not data?
   )(window.jQuery)
+
+window.EventedVideo = EventedVideo
