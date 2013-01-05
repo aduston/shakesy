@@ -9,15 +9,17 @@ class Track
   search: (time, L) ->
     return @search(time, @cueEvents) if not L?
     throw new Error("time not found") if L.length == 0
-    mid = Math.floor(L.length / 2)
-    event = L[mid]
-    nextEvent = L[mid + 1]
-    if event.startTime <= time && (!nextEvent || nextEvent.startTime > time)
-      mid
-    else if event.startTime <= time
-      @search(val, L[(mid + 1)..L.length])
-    else
-      @search(val, L[0..(mid - 1)])
+    low = 0
+    high = L.length - 1
+    while low <= high
+      mid = Math.floor (low+high) / 2
+      if time < L[mid].time
+        high = mid - 1
+      else if time > L[mid].time
+        low = mid + 1
+      else
+        return mid
+    return -1
 
   eventHasTime: (index, time) ->
     event = @curEvents[index]
