@@ -7,5 +7,5 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^experiment_1$', 'experiment_1.views.index'),
-    url(r'js_tests/$', direct_to_template, {'template': 'SpecRunner.html'})
+    url(r'jstest/$', direct_to_template, {'template': 'specrunner.html'})
 )

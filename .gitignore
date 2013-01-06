@@ -2,3 +2,4 @@
 *.pyc
 collected/*
 *.swp
+.DS_Store
