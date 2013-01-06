@@ -12,21 +12,24 @@ class Track
     low = 0
     high = L.length - 1
     while low <= high
-      mid = Math.floor (low+high) / 2
+      mid = Math.floor (low + high) / 2
       if time < L[mid].time
         high = mid - 1
-      else if time > L[mid].time
-        low = mid + 1
-      else
+      else if @eventHasTime mid, time
         return mid
+      else
+        low = mid + 1
     return -1
 
   eventHasTime: (index, time) ->
-    event = @curEvents[index]
-    nextEvent = @curEvents[index + 1]
+    event = @cueEvents[index]
+    nextEvent = @cueEvents[index + 1]
+    console.log nextEvent
+    console.log !nextEvent
+    console.log nextEvent.time > time if nextEvent
     event && event.time <= time && (!nextEvent || nextEvent.time > time)
 
   execute: (index) ->
-    @eventFn_(@cueEvents[index])
+    @eventFn_(@cueEvents[index].data)
 
 window.Track = Track

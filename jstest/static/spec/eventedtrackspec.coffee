@@ -3,23 +3,26 @@ randrange = (a, b) ->
   Math.round randval
 
 describe "ExecutedTrack", ->
+  spy = null
+  track = null
+  
   beforeEach ->
-    window.spy = jasmine.createSpy('eventFn')
-    window.event = new CueEvent 5, "Hello world!"
-    window.track = new window.ExecutedTrack new window.Track(window.spy, [event])
+    spy = jasmine.createSpy('eventFn')
+    events = [new CueEvent(1.2, "a"), new CueEvent(2.6, "b")]
+    track = new window.ExecutedTrack new window.Track(spy, events)
 
   it "runs correctly with a playheadTime equal to the first CueEvent", ->
-   window.track.execute 5
-   expect(window.spy).toHaveBeenCalled()
+    track.execute 1.2
+    expect(spy).toHaveBeenCalledWith("a")
 
   it "runs correctly with a playheadTime less than the first CueEvent time", ->
-    window.track.execute 2
-    expect(window.spy).not.toHaveBeenCalled()
+    track.execute 1
+    expect(spy).toHaveBeenCalledWith(null or undefined)
 
-  it "runs correctly with a playheadTime for a random position in the Track", ->
-    window.track.execute randrange 1, 100
-    expect(window.spy).not.toHaveBeenCalled()
+  it "runs correctly with a playheadTime for a position between two CueEvents", ->
+    track.execute 2
+    expect(spy).toHaveBeenCalledWith("a")
 
   it "runs correctly with a playheadTime right after the last CueEvent", ->
-    window.track.execute 6
-    expect(window.spy).not.toHaveBeenCalled()
+    track.execute 3
+    expect(spy).toHaveBeenCalledWith("b")
