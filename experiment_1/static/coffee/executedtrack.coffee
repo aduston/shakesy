@@ -7,7 +7,7 @@ class ExecutedTrack
     else if @track.eventHasTime(@curIndex_, playheadTime)
       return
     else if @track.eventHasTime(@curIndex_ + 1, playheadTime)
-      @executeCurIndex_(curIndex_ + 1)
+      @executeCurIndex_(@curIndex_ + 1)
     else
       @executeNoCurIndex_(playheadTime)
   executeNoCurIndex_: (playheadTime) ->
