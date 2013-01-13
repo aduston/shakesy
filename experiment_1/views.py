@@ -9,12 +9,17 @@ def index(request):
     yt_query_string = urllib.urlencode(
         { "enablejsapi": "1",
           "origin": settings.ORIGIN })
-    subs_json = json.dumps([
+    subs_dicts = [
             { "start_time": cs.start_time,
-             "text": cs.text } 
-            for cs in models.ContemporarySubtitle.objects.all()])
+              "character_id": cs.character.id,
+              "text": cs.text } 
+            for cs in models.ContemporarySubtitle.objects.all()]
+    cur_character_ids = set([s["character_id"] for s in subs_dicts])
+    
     return render_to_response(
         "experiment_1.html",
         { "yt_query_string": yt_query_string,
-          "subtitles": subs_json },
+          "cur_characters": models.Character.objects.filter(id__in=cur_character_ids).all(),
+          "other_characters": models.Character.objects.exclude(id__in=cur_character_ids).all(),
+          "subtitles": json.dumps(subs_dicts) },
         context_instance=RequestContext(request))

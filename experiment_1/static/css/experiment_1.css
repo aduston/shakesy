@@ -1,3 +1,12 @@
+.video {
+    width: 650px;
+    float: left;
+}
+
+.characters {
+    margin-left: 650px;
+}
+
 #subtitle {
     display: block;
     position: absolute;
