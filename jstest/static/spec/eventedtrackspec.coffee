@@ -9,20 +9,21 @@ describe "ExecutedTrack", ->
   beforeEach ->
     spy = jasmine.createSpy('eventFn')
     events = [new CueEvent(1.2, "a"), new CueEvent(2.6, "b")]
-    track = new window.ExecutedTrack new window.Track(spy, events)
+    track = new window.Track(spy, events)
+    executed_track = new window.ExecutedTrack track
 
   it "runs correctly with a playheadTime equal to the first CueEvent", ->
-    track.execute 1.2
+    executed_track.execute 1.2
     expect(spy).toHaveBeenCalledWith("a")
 
   it "runs correctly with a playheadTime less than the first CueEvent time", ->
-    track.execute 1
+    executed_track.execute 1
     expect(spy).toHaveBeenCalledWith(null or undefined)
 
   it "runs correctly with a playheadTime for a position between two CueEvents", ->
-    track.execute 2
+    executed_track.execute 2
     expect(spy).toHaveBeenCalledWith("a")
 
   it "runs correctly with a playheadTime right after the last CueEvent", ->
-    track.execute 3
+    executed_track.execute 3
     expect(spy).toHaveBeenCalledWith("b")
