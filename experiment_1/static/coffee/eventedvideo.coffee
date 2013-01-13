@@ -4,7 +4,6 @@ DATA_KEY = 'eventedVideo'
   class EventedVideo
     constructor: (@elem) ->
       @$elem = $(@elem)
-      @time = 0
       @player = new YT.Player(
         @elem.id,
         events:
@@ -13,17 +12,15 @@ DATA_KEY = 'eventedVideo'
     onPlayerReady_: (event) ->
       console.log(event)
     onPlayerStateChange_: (event) ->
-      @time = @player.getCurrentTime()
       if event.data is YT.PlayerState.PLAYING
-        @state = setInterval @timerTick_, 1000
+        @state = setInterval @timerTick_, 50
       else if event.data is YT.PlayerState.PAUSED
         clearInterval(@state)
     tracks: (tracks) ->
       @executedTracks = (new ExecutedTrack(t) for t in tracks)
     timerTick_: () =>
-      @time += 1
-      console.log @time
-      (t.execute(@time) for t in @executedTracks)
+      time = @player.getCurrentTime()
+      (t.execute(time) for t in @executedTracks)
 
   $.fn.eventedVideo = (option) ->
     this.each () ->

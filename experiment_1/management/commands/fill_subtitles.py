@@ -16,8 +16,8 @@ class Command(BaseCommand):
         models.ContemporarySubtitle(
             text="a a a a a aaaa",
             character=char_a,
-            start_time=1.3).save()
+            start_time=13).save()
         models.ContemporarySubtitle(
             text="bbbba ba ba ba a aaaa",
             character=char_b,
-            start_time=2.3).save()
+            start_time=23).save()
