@@ -5,6 +5,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/experiment_1.css' %}">
   </head>
   <body>
     <iframe id="player" width="640" height="480" src="http://www.youtube.com/embed/1kuF1-tyaAE?wmode=opaque&{{yt_query_string}}" frameborder="0"></iframe>
@@ -19,6 +20,6 @@
     <script type="text/coffeescript" src="{% static 'coffee/eventedvideo.coffee' %}"></script>
     <script type="text/coffeescript" src="{% static 'coffee/experiment_1.coffee' %}"></script>
     {% endcompress %}
-    <span class="unisubs-captionSpan" style="visibility: visible !important; width: 400px !important; left: 550px !important; text-align: left; top: 389px !important;" dir="ltr">We started Universal Subtitles because we believe</span>
+    <span id="subtitle"></span>
   </body>
 </html>

@@ -4,6 +4,9 @@ window.onYouTubeIframeAPIReady = () ->
   $("#player").eventedVideo({ tracks: getTracks() })
 
 getTracks = () ->
-  eventFn = (data) -> console.log "Current CueEvent: ", data
+  eventFn = (data) -> displaySubtitle(data)
   cueEvents = (new CueEvent(s["start_time"] / 10.0, s["text"]) for s in SUBS)
   [new Track(eventFn, cueEvents)]
+
+displaySubtitle = (sub) ->
+  $('#subtitle').text(sub ? '')
