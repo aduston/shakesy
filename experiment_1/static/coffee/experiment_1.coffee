@@ -6,5 +6,4 @@ window.onYouTubeIframeAPIReady = () ->
 getTracks = () ->
   eventFn = (data) -> console.log "Current CueEvent: ", data
   cueEvents = (new CueEvent(s["start_time"] / 10.0, s["text"]) for s in SUBS)
-  console.log cueEvents
   [new Track(eventFn, cueEvents)]

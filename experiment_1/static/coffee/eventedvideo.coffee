@@ -7,10 +7,7 @@ DATA_KEY = 'eventedVideo'
       @player = new YT.Player(
         @elem.id,
         events:
-          'onReady': (e) => @onPlayerReady_(e)
           'onStateChange': (e) => @onPlayerStateChange_(e))
-    onPlayerReady_: (event) ->
-      console.log(event)
     onPlayerStateChange_: (event) ->
       if event.data is YT.PlayerState.PLAYING
         @state = setInterval @timerTick_, 50
