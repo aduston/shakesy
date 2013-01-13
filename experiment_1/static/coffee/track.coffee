@@ -6,14 +6,12 @@ class Track
     else
       @cueEvents = cueEvents
       
-  search: (time, L) ->
-    return @search(time, @cueEvents) if not L?
-    throw new Error("time not found") if L.length == 0
+  search: (time) ->
     low = 0
-    high = L.length - 1
+    high = @cueEvents.length - 1
     while low <= high
       mid = Math.floor (low + high) / 2
-      if time < L[mid].time
+      if time < @cueEvents[mid].time
         high = mid - 1
       else if @eventHasTime mid, time
         return mid
@@ -24,9 +22,6 @@ class Track
   eventHasTime: (index, time) ->
     event = @cueEvents[index]
     nextEvent = @cueEvents[index + 1]
-    console.log nextEvent
-    console.log !nextEvent
-    console.log nextEvent.time > time if nextEvent
     event && event.time <= time && (!nextEvent || nextEvent.time > time)
 
   execute: (index) ->
