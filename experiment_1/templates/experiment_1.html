@@ -16,8 +16,12 @@
       <h4>Characters:</h4>
       {% for character in cur_characters %}
       <div class="media">
-	<div class="pull-left">
+        <div class="pull-left">
+          {% if character.cimage %}
+            <img class="media-object" src="{{ character.cimage.url }}">
+	  {% else %}
 	  <img class="media-object" src="http://placehold.it/64x64">
+	  {% endif %}
 	</div>
 	<div class="media-body">
           <h5 class="media-heading">{{ character.name }}</h4>
