@@ -11,5 +11,5 @@ class Scene(models.Model):
 
 class ContemporarySubtitle(models.Model):
     text = models.CharField(max_length=1024)
-    character = models.ForeignKey(Character)
+    character = models.ForeignKey(Character, null=True, blank=True)
     start_time = models.IntegerField() # specifies time in tenths of a second

@@ -6,6 +6,8 @@ PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
 def _rel(*x):
     return os.path.join(PROJECT_ROOT, *x)
 
+DATA_DIR = _rel("experiment_1/data")
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
