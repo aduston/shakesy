@@ -9,7 +9,8 @@ class Character(models.Model):
 class Scene(models.Model):
     act = models.IntegerField()
 
-class ContemporarySubtitle(models.Model):
-    text = models.CharField(max_length=1024)
+class Subtitle(models.Model):
+    contemporary_text = models.CharField(max_length=1024)
+    original_text= models.CharField(max_length=1024)
     character = models.ForeignKey(Character, null=True, blank=True)
     start_time = models.IntegerField() # specifies time in tenths of a second
