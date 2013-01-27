@@ -28,8 +28,7 @@
 
 8
 00:00:54,150 --> 00:00:59,705
-2:Thanks for relieving me. It's bitterly cold,
-and I'm saddened.
+2:Thanks for relieving me. It's bitterly cold, and I'm saddened.
 
 9
 00:01:01,103 --> 00:01:05,183
@@ -89,9 +88,7 @@ and I'm saddened.
 
 23
 00:01:44,016 --> 00:01:51,683
-4:Horatio says it's our imagination
-And won't believe in 
-The horrible thing we've seen twice now.
+4:Horatio says it's our imagination, and he won't believe in the horrible thing we've seen twice now.
 
 24
 00:01:51,683 --> 00:01:56,567
@@ -99,8 +96,7 @@ The horrible thing we've seen twice now.
 
 25
 00:01:56,567 --> 00:02:02,983
-4:So that if the ghost comes
-He can see what we see and speak to it.
+4:So that if the ghost comes, he can see what we see and speak to it.
 
 26
 00:02:02,983 --> 00:02:04,466
@@ -108,9 +104,7 @@ He can see what we see and speak to it.
 
 27
 00:02:04,466 --> 00:02:11,700
-1:Then let us tell you again
-The story you don't want to believe,
-About what we've seen two nights now.
+1:Then let us tell you again the story you don't want to believe, about what we've seen two nights now.
 
 28
 00:02:11,700 --> 00:02:15,716
@@ -118,14 +112,11 @@ About what we've seen two nights now.
 
 29
 00:02:15,716 --> 00:02:19,700
-1:Last night,
-1:When that star to the west of the North star
+1:Last night, when that star to the west of the North star
 
 30
 00:02:19,700 --> 00:02:26,958
-1:Had traveled across the sky to light up that part of heaven
-Where it shines now, Marcellus and I,
-at one o'clock a.m.--
+1:Had traveled across the sky to light up that part of heaven where it shines now, Marcellus and I, at one o'clock a.m.--
 
 31
 00:02:31,835 --> 00:02:33,202
@@ -149,24 +140,19 @@ at one o'clock a.m.--
 
 36
 00:02:43,582 --> 00:02:46,933
-1:It wants us to speak to it.
-Ask it something, Horatio.
+1:It wants us to speak to it. Ask it something, Horatio.
 
 37
 00:02:46,933 --> 00:02:52,400
-3:What are you, that you walk out so late at night
-Looking like you're dressed for battle
+3:What are you, that you walk out so late at night looking like you're dressed for battle
 
 38
 00:02:52,400 --> 00:02:58,183
-3:In the same way the dead king of Denmark
-when he dressed for battle? By God, I order
-you to speak.
+3:In the same way the dead king of Denmark when he dressed for battle? By God, I order you to speak.
 
 39
 00:02:58,183 --> 00:03:00,333
-4:It is offended.
-Look, it's going away.
+4:It is offended. Look, it's going away.
 
 40
 00:03:00,333 --> 00:03:04,230
@@ -178,26 +164,19 @@ Look, it's going away.
 
 42
 00:03:09,549 --> 00:03:14,933
-3:I swear to God, I would not believe this
-If I had not seen it with my own eyes.
+3:I swear to God, I would not believe this if I had not seen it with my own eyes.
 
 43
 00:03:14,933 --> 00:03:20,933
-4:It's happened like this twice before, always at
-this exact time. He goes by our post with a 
-warrior's walk.
+4:It's happened like this twice before, always at this exact time. He goes by our post with a warrior's walk.
 
 44
 00:03:20,933 --> 00:03:28,416
-3:I don't really know how to explain this,
-But I have the general feeling
-This means bad news for our country.
+3:I don't really know how to explain this, but I have the general feeling this means bad news for our country.
 
 45
 00:03:28,416 --> 00:03:40,618
-4:Alright, come close and somebody tell me
-Why this strict schedule of guards 
-Has been employed.
+4:Alright, come close and somebody tell me why this strict schedule of guards has been employed.
 
 46
 00:03:40,618 --> 00:03:46,734
@@ -245,8 +224,7 @@ Has been employed.
 
 57
 00:04:42,951 --> 00:04:49,584
-3:Wait, look! It has come again.
-I'll cross it if it's the last thing I do. Stay, ghost!
+3:Wait, look! It has come again. I'll cross it if it's the last thing I do. Stay, ghost!
 
 58
 00:04:49,584 --> 00:04:51,966
@@ -298,8 +276,7 @@ I'll cross it if it's the last thing I do. Stay, ghost!
 
 70
 00:05:36,799 --> 00:05:42,396
-4:Yes, it faded away when the rooster crowed.
-Some say that just before Christmas
+4:Yes, it faded away when the rooster crowed. Some say that just before Christmas
 
 71
 00:05:42,734 --> 00:05:49,952
