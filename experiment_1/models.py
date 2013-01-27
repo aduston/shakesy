@@ -6,6 +6,9 @@ class Character(models.Model):
     cimage = models.ImageField(upload_to="character_images", null=True, blank=True)
     description = models.TextField(max_length=8191)
 
+    def __unicode__(self):
+        return self.name
+
 class Scene(models.Model):
     act = models.IntegerField()
 

@@ -14,7 +14,7 @@
     </div>
     <div class="characters">
       <h4>Characters:</h4>
-      {% for character in cur_characters %}
+      {% for character in characters %}
       <div class="media">
         <div class="pull-left">
           {% if character.cimage %}
@@ -26,7 +26,6 @@
 	<div class="media-body">
           <h5 class="media-heading">{{ character.name }}</h4>
 	  <h6>{{ character.title }}</h6>
-	  <p>{{ character.description }}</p>
         </div>
       </div>
       {% endfor %}        
