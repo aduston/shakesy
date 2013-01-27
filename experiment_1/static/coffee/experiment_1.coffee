@@ -9,4 +9,8 @@ getTracks = () ->
   [new Track(eventFn, cueEvents)]
 
 displaySubtitleData = (data) ->
-  $('#subtitle').text(if data then data['text'] else '')
+  $('#subtitle').toggle(data?)
+  $('#subtitle').text(if data then data['contemporary_text'] else '')
+  $('#side_subtitle').text(if data then data['original_text'] else '')
+  $('.characters .cur-character').removeClass('cur-character')
+  $("[data-charid=#{data['character_id']}]").addClass('cur-character')

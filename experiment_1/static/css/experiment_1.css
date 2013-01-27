@@ -3,8 +3,12 @@
     float: left;
 }
 
-.characters {
+.video-sidebar {
     margin-left: 650px;
+}
+
+.cur-character {
+    background-color: yellow;
 }
 
 #subtitle {
@@ -15,4 +19,13 @@
     width: 440px;
     text-align: center;
     color: white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: url("../images/caption_bg.png");
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    letter-spacing: .06em;
+    line-height: 1.4em;
+    padding: 10px 3px;
+    text-shadow: 0px 2px 1px #000, -1px 3px 1px #000, -2px 2px 1px #000, -2px 1px 1px #000, -2px 0px 1px #000, 2px $
 }

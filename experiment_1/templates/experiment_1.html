@@ -12,23 +12,26 @@
     <div class="video">
       <iframe id="player" width="640" height="480" src="http://www.youtube.com/embed/1kuF1-tyaAE?wmode=opaque&{{yt_query_string}}" frameborder="0"></iframe>
     </div>
-    <div class="characters">
-      <h4>Characters:</h4>
-      {% for character in characters %}
-      <div class="media">
-        <div class="pull-left">
-          {% if character.cimage %}
+    <div class="video-sidebar">
+      <div class="characters">
+        <h4>Characters:</h4>
+        {% for character in characters %}
+        <div class="media" data-charid="{{character.id}}">
+          <div class="pull-left">
+            {% if character.cimage %}
             <img class="media-object" src="{{ character.cimage.url }}">
-	  {% else %}
-	  <img class="media-object" src="http://placehold.it/64x64">
-	  {% endif %}
-	</div>
-	<div class="media-body">
-          <h5 class="media-heading">{{ character.name }}</h4>
-	  <h6>{{ character.title }}</h6>
+	    {% else %}
+	    <img class="media-object" src="http://placehold.it/64x64">
+	    {% endif %}
+	  </div>
+	  <div class="media-body">
+            <h4 class="media-heading">{{ character.name }}</h4>
+            <h6>{{ character.title }}</h6>
+          </div>
         </div>
+        {% endfor %}
       </div>
-      {% endfor %}        
+      <div id="side_subtitle"></div>
     </div>
     <script type="text/javascript" src="{% static 'js/jquery-1.8.2.min.js' %}"></script>
     <script type="text/javascript">
@@ -41,7 +44,7 @@
     <script type="text/coffeescript" src="{% static 'coffee/eventedvideo.coffee' %}"></script>
     <script type="text/coffeescript" src="{% static 'coffee/experiment_1.coffee' %}"></script>
     {% endcompress %}
-    <span id="subtitle"></span>
+    <span id="subtitle" style="display: none;"></span>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
 </html>
