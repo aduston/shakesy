@@ -13,9 +13,9 @@ def index(request):
             { "start_time": cs.start_time,
               "character_id": cs.character_id,
               "contemporary_text": cs.contemporary_text,
-              "original_text": cs.original_text } 
-            for cs in models.Subtitle.objects.all()]
-    
+              "original_text": cs.original_text }
+            for cs in models.Subtitle.objects.all().order_by("start_time")]
+
     return render_to_response(
         "experiment_1.html",
         { "yt_query_string": yt_query_string,

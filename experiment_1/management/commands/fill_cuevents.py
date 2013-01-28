@@ -13,13 +13,14 @@ CHARACTERS = {'1': models.Character(name="Barnardo", title="Barnardo", descripti
 [c.save() for c in CHARACTERS.values()]
 CHARACTERS['0'] = None
 
+
 class Command(BaseCommand):
     def handle(self, *args, **options):
         original = SubRipFile.open(os.path.join(settings.DATA_DIR, "original_text.srt"))
         contemporary = SubRipFile.open(os.path.join(settings.DATA_DIR, "contemporary_text.srt"))
         i = 0
         for sub in original:
-                start = sub.start.hours * 6000 + sub.start.minutes * 600 + sub.start.seconds * 10 + sub.start.milliseconds / 10.0
+                start = sub.start.hours * 6000 + sub.start.minutes * 600 + sub.start.seconds * 10 + sub.start.milliseconds / 100.0
                 print "Subtitle %d" % sub.index
-                models.Subtitle(contemporary_text = contemporary[i].text[2:], original_text=sub.text[2:], character=CHARACTERS[sub.text[0]], start_time=start).save()
+                models.Subtitle(contemporary_text=contemporary[i].text[2:], original_text=sub.text[2:], character=CHARACTERS[sub.text[0]], start_time=start).save()
                 i += 1
