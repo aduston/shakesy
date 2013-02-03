@@ -5,7 +5,7 @@ import models
 import json
 import urllib
 
-def index(request):
+def index_a(request):
     yt_query_string = urllib.urlencode(
         { "enablejsapi": "1",
           "origin": settings.ORIGIN })
@@ -17,7 +17,7 @@ def index(request):
             for cs in models.Subtitle.objects.all().order_by("start_time")]
 
     return render_to_response(
-        "experiment_1.html",
+        "experiment_1a.html",
         { "yt_query_string": yt_query_string,
           "characters": models.Character.objects.all(),
           "subtitles": json.dumps(subs_dicts) },

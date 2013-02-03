@@ -1,0 +1,33 @@
+{% extends "experiment_1.html" %}
+
+{% load static from staticfiles %}
+
+{% block sidebar %}
+<div class="characters">
+  <h4>Characters:</h4>
+  {% for character in characters %}
+  <div class="media" data-charid="{{character.id}}">
+    <div class="pull-left">
+      {% if character.cimage %}
+      <img class="media-object" src="{{ character.cimage.url }}">
+      {% else %}
+      <img class="media-object" src="http://placehold.it/64x64">
+      {% endif %}
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{ character.name }}</h4>
+      <h6>{{ character.title }}</h6>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<div id="side_subtitle"></div>
+{% endblock %}
+
+{% block page_coffee %}
+<script type="text/coffeescript" src="{% static 'coffee/experiment_1a.coffee' %}"></script>
+{% endblock %}
+
+{% block video_overlay %}
+<span id="subtitle" style="display: none;"></span>
+{% endblock %}
