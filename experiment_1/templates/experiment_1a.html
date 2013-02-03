@@ -2,6 +2,10 @@
 
 {% load static from staticfiles %}
 
+{% block page_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/experiment_1a.css' %}">
+{% endblock %}
+
 {% block sidebar %}
 <div class="characters">
   <h4>Characters:</h4>
