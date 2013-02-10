@@ -10,7 +10,7 @@
 <div class="characters">
   <h4>Characters:</h4>
   {% for character in characters %}
-  <div class="media" data-charid="{{character.id}}">
+  <div class="media character" data-charid="{{character.id}}">
     <div class="pull-left">
       {% if character.cimage %}
       <img class="media-object" src="{{ character.cimage.url }}">

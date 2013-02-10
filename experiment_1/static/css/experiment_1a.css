@@ -7,8 +7,23 @@
     margin-left: 650px;
 }
 
+
+.characters {
+    display: inline-block;
+}
+
 .cur-character {
     background-color: yellow;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-color: rgb(197, 245, 246);
+
+}
+
+.character {
+    border-radius: 10px;
+    border: 1px solid rgb(178, 255, 190);
 }
 
 #subtitle {
@@ -28,4 +43,8 @@
     line-height: 1.4em;
     padding: 10px 3px;
     text-shadow: 0px 2px 1px #000, -1px 3px 1px #000, -2px 2px 1px #000, -2px 1px 1px #000, -2px 0px 1px #000, 2px $
+}
+
+#side_subtitle {
+    
 }
