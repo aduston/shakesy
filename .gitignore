@@ -4,3 +4,4 @@ collected/*
 *.swp
 .DS_Store
 db.sqlite
+media/
