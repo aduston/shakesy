@@ -8,5 +8,5 @@ django-storages==1.1.4
 django_compressor==1.2
 pytz==2012d
 pillow==1.7.8
-chardet==2.1.1
+charade==1.0.3
 pysrt==0.4.5
