@@ -11,6 +11,7 @@
   <body>
     <div class="video">
       <iframe id="player" width="640" height="480" src="http://www.youtube.com/embed/1kuF1-tyaAE?wmode=opaque&{{yt_query_string}}" frameborder="0"></iframe>
+      {% block inside_video_overlay %}{% endblock %}
     </div>
     <div class="video-sidebar">
       {% block sidebar %}{% endblock %}

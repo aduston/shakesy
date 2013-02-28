@@ -1,0 +1,21 @@
+{% extends "experiment_1.html" %}
+
+{% load static from staticfiles %}
+
+{% block page_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/experiment_1b.css' %}">
+{% endblock %}
+
+{% block page_coffee %}
+<script type="text/coffeescript" src="{% static 'coffee/experiment_1b.coffee' %}"></script>
+{% endblock %}
+
+{% block inside_video_overlay %}
+<span id="character" style="display: none;">
+  <img class="photo">
+  <span class="name"></span>
+  <span class="title"></span>
+</span>
+<span class="subtitle original" style="display: none;"></span>
+<span class="subtitle contemporary" style="display: none;"></span>
+{% endblock %}
