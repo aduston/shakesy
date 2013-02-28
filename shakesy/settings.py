@@ -111,3 +111,14 @@ LOGGING = {
 INSTALLATION = "local"
 DOMAIN = "localhost:8000"
 ORIGIN = "http://localhost:8000"
+
+
+env = environ.get("RACK_ENV", "dev")
+
+if env == "production":
+    DEBUG = False
+    INSTALLED_APPS += ('gunicorn', 'storages')
+    import dj_database_url
+    DATABASES['default'] = dj_database_url.config()
+
+    INSTALLATION = "production"
