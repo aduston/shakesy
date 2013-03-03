@@ -16,11 +16,30 @@ CHARACTERS['0'] = None
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        original = SubRipFile.open(os.path.join(settings.DATA_DIR, "original_text.srt"))
-        contemporary = SubRipFile.open(os.path.join(settings.DATA_DIR, "contemporary_text.srt"))
+        original_subs = self._parse("original_text.srt")
+        contemporary_subs = self._parse("contemporary_text.srt")
+
         i = 0
-        for sub in original:
-                start = sub.start.hours * 36000 + sub.start.minutes * 600 + sub.start.seconds * 10 + sub.start.milliseconds / 100.0
-                print "Subtitle %d" % sub.index
-                models.Subtitle(contemporary_text=contemporary[i].text[2:], original_text=sub.text[2:], character=CHARACTERS[sub.text[0]], start_time=start).save()
-                i += 1
+        for sub in original_subs:
+            start = sub.start.hours * 36000 + sub.start.minutes * 600 + sub.start.seconds * 10 + sub.start.milliseconds / 100.0
+            print "Subtitle %d" % sub.index
+            models.Subtitle(contemporary_text=contemporary[i].text[2:], original_text=sub.text[2:], character=CHARACTERS[sub.text[0]], start_time=start).save()
+            i += 1
+
+    def _parse(self, file_name):
+        file_name = os.path.join(settings.DATA_DIR, file_name)        
+        with open(file_name, "r") as f:
+            return self._parse_text(f.read())
+
+    def _parse_text(self, text):
+        pattern = re.compile(self._pattern(), re.DOTALL)
+        match = pattern.search(text)
+        
+
+    def _pattern(self):
+        pattern = r'\d+\s*?\n'
+        pattern += r'(?P<s_hour>\d{2}):(?P<s_min>\d{2}):(?P<s_sec>\d{2})(,(?P<s_secfr>\d*))?'
+        pattern += r' --> '
+        pattern += r'(?P<e_hour>\d{2}):(?P<e_min>\d{2}):(?P<e_sec>\d{2})(,(?P<e_secfr>\d*))?'
+        pattern += r'\n(\n|(?P<text>.+?)\n\n)'
+        return pattern
