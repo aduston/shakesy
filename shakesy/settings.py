@@ -120,5 +120,17 @@ if env == "production":
     INSTALLED_APPS += ('gunicorn', 'storages')
     import dj_database_url
     DATABASES['default'] = dj_database_url.config()
+    ORIGIN = "http://www.shakesy.com"
 
     INSTALLATION = "production"
+
+    STATICFILES_STORAGE = 'shakesy.s3utils.StaticS3BotoStorage'
+    DEFAULT_FILE_STORAGE = "shakesy.s3utils.MediaS3BotoStorage"
+
+    AWS_STORAGE_BUCKET_NAME = "shakesy"
+    AWS_ACCESS_KEY_ID = "AKIAJDPMOLSYHWGM4NYQ"
+    AWS_SECRET_ACCESS_KEY = environ.get("AWS_SECRET_ACCESS_KEY", "")
+
+    S3_URL = 'http://s3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
+    STATIC_URL = S3_URL + '/static'
+    MEDIA_URL = S3_URL + '/media'
