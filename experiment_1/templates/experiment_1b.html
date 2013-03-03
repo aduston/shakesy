@@ -11,11 +11,19 @@
 {% endblock %}
 
 {% block inside_video_overlay %}
-<span id="character" style="display: none;">
-  <img class="photo">
-  <span class="name"></span>
-  <span class="title"></span>
-</span>
-<span class="subtitle original" style="display: none;"></span>
-<span class="subtitle contemporary" style="display: none;"></span>
+<div id="video_overlay">
+  <div class="clearfix">
+    <div id="character" style="display: none">
+      <img class="photo">
+      <div>
+        <span class="name"></span><br>
+        <span class="title"></span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <span class="subtitle original" style="display: none"></span>
+    <span class="subtitle contemporary" style="display: none"></span>
+  </div>
+</div>
 {% endblock %}

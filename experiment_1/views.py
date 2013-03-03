@@ -34,9 +34,17 @@ def index_b(request):
               "original_text": cs.original_text }
             for cs in models.Subtitle.objects.all().order_by("start_time")]
 
+    char_dicts = dict([
+            [c.id,
+             { "id": c.id,
+               "name": c.name,
+               "title": c.title, 
+               "image": c.cimage.url if c.cimage else "" }]
+            for c in models.Character.objects.all()])
+
     return render_to_response(
         "experiment_1b.html",
         { "yt_query_string": yt_query_string,
-          "characters": models.Character.objects.all(),
+          "characters": json.dumps(char_dicts),
           "subtitles": json.dumps(subs_dicts) },
         context_instance=RequestContext(request))

@@ -10,7 +10,12 @@ getTracks = () ->
 
 displaySubtitleData = (data) ->
   $('.subtitle').toggle(data?)
-  $('.subtitle.original').html(if data then data['original_text'].replace('\n', '<br/>') else '')
+  $('#character').toggle(data?)
+  $('.subtitle.original').html(if data then data['original_text'].replace(/\n/g, '<br/>') else '')
   $('.subtitle.contemporary').text(if data then data['contemporary_text'] else '')
-#  $('.characters .cur-character').removeClass('cur-character')
-#  $("[data-charid=#{data['character_id']}]").addClass('cur-character') if data
+  if data?
+    character = CHARACTERS[data['character_id'] + '']
+    $('#character .photo').attr('src', character['image']) if character['image']
+    $('#character .photo').toggle(!!character['image'])
+    $('#character .name').text(character['name'])
+    $('#character .title').text(character['title'])

@@ -9,12 +9,15 @@
     margin-left: 650px;
 }
 
-.subtitle {
+#video_overlay {
     display: block;
     position: absolute;
     bottom: 40px;
-    width: 310px;
-    text-align: center;
+    left: 0;
+    width: 640px;
+}
+
+#character, .subtitle {
     color: white;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -24,13 +27,27 @@
     letter-spacing: .06em;
     line-height: 1.4em;
     padding: 10px 3px;
-    text-shadow: 0px 2px 1px #000, -1px 3px 1px #000, -2px 2px 1px #000, -2px 1px 1px #000, -2px 0px 1px #000, 2px $
+    text-shadow: 0px 2px 1px #000, -1px 3px 1px #000, -2px 2px 1px #000, -2px 1px 1px #000, -2px 0px 1px #000;
 }
 
-.subtitle.original {
-    left: 0px;
+.subtitle {
+    width: 310px;
+    display: inline-block;
+    text-align: center;
 }
 
-.subtitle.contemporary {
-    left: 320px;
+#character {
+    margin-left: 20px;
+    margin-bottom: 4px;
+    float: left;
+}
+
+#character .photo {
+    width: 32px;
+    height: 32px;
+    float: left;
+}
+
+#character div {
+    margin-left: 36px;
 }
