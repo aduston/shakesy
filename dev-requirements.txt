@@ -1,6 +1,4 @@
 django==1.4.3
 South==0.7.5
 django_compressor==1.2
-charade==1.0.3
 pillow==1.7.8
-pysrt==0.4.5
