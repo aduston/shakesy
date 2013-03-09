@@ -132,5 +132,5 @@ if env == "production":
     AWS_SECRET_ACCESS_KEY = environ.get("AWS_SECRET_ACCESS_KEY", "")
 
     S3_URL = 'http://s3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
-    STATIC_URL = S3_URL + '/static'
-    MEDIA_URL = S3_URL + '/media'
+    STATIC_URL = S3_URL + '/static/'
+    MEDIA_URL = S3_URL + '/media/'
