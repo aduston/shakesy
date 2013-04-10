@@ -1,0 +1,41 @@
+{% extends "experiment_1.html" %}
+
+{% load static from staticfiles %}
+
+{% block page_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/experiment_1c.css' %}">
+{% endblock %}
+
+{% block page_coffee %}
+<script type="text/coffeescript" src="{% static 'coffee/experiment_1c.coffee' %}"></script>
+{% endblock %}
+
+{% block inside_video_overlay %}
+<div id="video_overlay">
+  <div class="clearfix">
+    <div id="character" style="display: none">
+      <img class="photo">
+      <div>
+        <span class="name"></span><br>
+        <span class="title"></span>
+      </div>
+    </div>
+  </div>
+  <div>
+      <div class="original_container">
+          <span class="subtitle original" style="display: none"></span>
+      </div>
+      <div class="contemporary_container">
+          <span class="subtitle contemporary" style="display: none"></span>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<input type="checkbox" id="old">
+<label for="old">Original Subtitles</label>
+
+<input type="checkbox" id="new">
+<label for="new">Contemporary Subtitles</label>
+{% endblock %}
