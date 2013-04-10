@@ -1,0 +1,53 @@
+.video {
+    width: 650px;
+    height: 480px;
+    position: relative;
+    float: left;
+}
+
+.video-sidebar {
+    margin-left: 650px;
+}
+
+#video_overlay {
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 640px;
+}
+
+#character, .subtitle {
+    color: white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: url("../images/caption_bg.png");
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: .06em;
+    line-height: 1.4em;
+    padding: 10px 3px;
+    text-shadow: 0px 2px 1px #000, -1px 3px 1px #000, -2px 2px 1px #000, -2px 1px 1px #000, -2px 0px 1px #000;
+}
+
+.subtitle {
+    width: 99%;
+    display: inline-block;
+    text-align: center;
+}
+
+#character {
+    margin-left: 20px;
+    margin-bottom: 4px;
+    float: left;
+}
+
+#character .photo {
+    width: 32px;
+    height: 32px;
+    float: left;
+}
+
+#character div {
+    margin-left: 36px;
+}
