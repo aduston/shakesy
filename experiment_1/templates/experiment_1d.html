@@ -1,0 +1,21 @@
+{% extends "experiment_1.html" %}
+
+{% load static from staticfiles %}
+
+{% block page_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/experiment_1d.css' %}">
+{% endblock %}
+
+{% block page_coffee %}
+<script type="text/coffeescript" src="{% static 'coffee/experiment_1d.coffee' %}"></script>
+{% endblock %}
+
+{% block sidebar %}
+<div class="scrolling-sidebar"></div>
+{% endblock %}
+
+{% block inside_video_overlay %}
+<div id="video_overlay">
+  <span class="subtitle" style="display: none"></span>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+.video {
+    width: 650px;
+    height: 480px;
+    position: relative;
+    float: left;
+}
+
+.video-sidebar {
+    margin-left: 650px;
+}
+
+.scrolling-sidebar {
+    width: 360px;
+    height: 480px;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.scrolling-sidebar div {
+    -webkit-transition: background 0.3s ease;  
+    -moz-transition: background 0.3s ease;  
+    -o-transition: background 0.3s ease;   
+    -ms-transition: background 0.3s ease;    
+    transition: background 0.3s ease;
+}
+
+.scrolling-sidebar div:hover {
+    cursor: pointer;
+}
+
+.scrolling-sidebar p {
+    padding: 0 4px 8px 0;
+    margin: 0;
+}
+
+.scrolling-sidebar h5 {
+    margin: 0;
+}
+
+.scrolling-sidebar .current {
+    background-color: #ffc;
+}

@@ -18,14 +18,15 @@ DATA_KEY = 'eventedVideo'
     timerTick_: () =>
       time = @player.getCurrentTime()
       (t.execute(time) for t in @executedTracks)
+    setPlayhead: (time) ->
+      @player.seekTo(time, true)
 
   $.fn.eventedVideo = (option) ->
     this.each () ->
       $this = $(this)
       data = $this.data(DATA_KEY)
-      $this.data(DATA_KEY, data = new EventedVideo(this)[key](data) for key, data of option) if not data?
+      $this.data(DATA_KEY, data = new EventedVideo(this)) if not data?
+      data[key](value) for key, value of option
 
   window.EventedVideo = EventedVideo
-  )(window.jQuery)
-
-
+)(window.jQuery)
