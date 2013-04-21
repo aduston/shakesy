@@ -143,3 +143,6 @@ if env == "production":
     S3_URL = 'http://s3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
     STATIC_URL = S3_URL + '/static/'
     MEDIA_URL = S3_URL + '/media/'
+
+    COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    COMPRESS_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
