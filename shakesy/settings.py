@@ -133,8 +133,8 @@ if env == "production":
 
     INSTALLATION = "production"
 
-    STATICFILES_STORAGE = 'shakesy.s3utils.StaticS3BotoStorage'
-    DEFAULT_FILE_STORAGE = "shakesy.s3utils.MediaS3BotoStorage"
+    STATICFILES_STORAGE = 'shakesy.s3utils.CachedStaticS3BotoStorage'
+    DEFAULT_FILE_STORAGE = "shakesy.s3utils.CachedMediaS3BotoStorage"
 
     AWS_STORAGE_BUCKET_NAME = "shakesy"
     AWS_ACCESS_KEY_ID = "AKIAJDPMOLSYHWGM4NYQ"
@@ -144,5 +144,4 @@ if env == "production":
     STATIC_URL = S3_URL + '/static/'
     MEDIA_URL = S3_URL + '/media/'
 
-    COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    COMPRESS_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+    COMPRESS_STORAGE = 'shakesy.s3utils.CachedStaticS3BotoStorage'
