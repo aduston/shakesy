@@ -145,4 +145,4 @@ if env == "production":
     MEDIA_URL = S3_URL + '/media/'
 
     COMPRESS_STORAGE = 'shakesy.s3utils.CachedStaticS3BotoStorage'
-    COMPRESS_URL = S3_URL
+    COMPRESS_URL = S3_URL + '/'
