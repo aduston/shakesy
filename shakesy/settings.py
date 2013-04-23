@@ -147,6 +147,8 @@ if env == "production":
     COMPRESS_OFFLINE = True
     COMPRESS_STORAGE = 'shakesy.s3utils.CachedStaticS3BotoStorage'
 
+    AWS_QUERYSTRING_AUTH = False
+
 try:
     from settings_local import *
 except ImportError:
