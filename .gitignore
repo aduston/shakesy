@@ -5,3 +5,4 @@ collected/*
 .DS_Store
 db.sqlite
 media/
+settings_local.py

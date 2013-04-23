@@ -22,12 +22,12 @@
       var CHARACTERS = {{ characters|safe }};
     </script>
     {% compress js %}
-    <script type="text/coffeescript" src="/static/coffee/cueevent.coffee"></script>
-    <script type="text/coffeescript" src="/static/coffee/track.coffee"></script>
-    <script type="text/coffeescript" src="/static/coffee/executedtrack.coffee"></script>
-    <script type="text/coffeescript" src="/static/coffee/eventedvideo.coffee"></script>
-    {% block page_coffee %}{% endblock %}
+    <script type="text/coffeescript" src="{{ STATIC_URL }}coffee/cueevent.coffee"></script>
+    <script type="text/coffeescript" src="{{ STATIC_URL }}coffee/track.coffee"></script>
+    <script type="text/coffeescript" src="{{ STATIC_URL }}coffee/executedtrack.coffee"></script>
+    <script type="text/coffeescript" src="{{ STATIC_URL }}coffee/eventedvideo.coffee"></script>
     {% endcompress %}
+    {% block page_coffee %}{% endblock %}
     {% block video_overlay %}{% endblock %}
   </body>
 </html>

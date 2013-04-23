@@ -1,13 +1,16 @@
 {% extends "experiment_1.html" %}
 
 {% load static from staticfiles %}
+{% load compress %}
 
 {% block page_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/experiment_1c.css' %}">
 {% endblock %}
 
 {% block page_coffee %}
-<script type="text/coffeescript" src="{% static 'coffee/experiment_1c.coffee' %}"></script>
+{% compress js %}
+<script type="text/coffeescript" src="{{ STATIC_URL }}coffee/experiment_1c.coffee"></script>
+{% endcompress %}
 {% endblock %}
 
 {% block inside_video_overlay %}

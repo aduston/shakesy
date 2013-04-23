@@ -140,9 +140,14 @@ if env == "production":
     AWS_ACCESS_KEY_ID = "AKIAJDPMOLSYHWGM4NYQ"
     AWS_SECRET_ACCESS_KEY = environ.get("AWS_SECRET_ACCESS_KEY", "")
 
-    S3_URL = 'http://s3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
+    S3_URL = 'https://%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
     STATIC_URL = S3_URL + '/static/'
     MEDIA_URL = S3_URL + '/media/'
 
+    COMPRESS_OFFLINE = True
     COMPRESS_STORAGE = 'shakesy.s3utils.CachedStaticS3BotoStorage'
-    COMPRESS_URL = S3_URL + '/'
+
+try:
+    from settings_local import *
+except ImportError:
+    pass
