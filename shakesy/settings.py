@@ -126,13 +126,16 @@ env = environ.get("RACK_ENV", "dev")
 
 if env == "production":
     DEBUG = False
-    INSTALLED_APPS += ('gunicorn', 'storages')
+    INSTALLED_APPS += ('gunicorn',)
     import dj_database_url
     DATABASES['default'] = dj_database_url.config()
     ORIGIN = "http://www.shakesy.com"
-
     INSTALLATION = "production"
 
+
+if env in ['production', 'compress']:
+    COMPRESS_ENABLED = True
+    INSTALLED_APPS += ('storages',)
     STATICFILES_STORAGE = 'shakesy.s3utils.CachedStaticS3BotoStorage'
     DEFAULT_FILE_STORAGE = "shakesy.s3utils.CachedMediaS3BotoStorage"
 
@@ -148,6 +151,7 @@ if env == "production":
     COMPRESS_STORAGE = 'shakesy.s3utils.CachedStaticS3BotoStorage'
 
     AWS_QUERYSTRING_AUTH = False
+    
 
 try:
     from settings_local import *
