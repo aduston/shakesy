@@ -29,14 +29,35 @@
 }
 
 .scrolling-sidebar p {
-    padding: 0 4px 8px 0;
     margin: 0;
+    padding: 0;
 }
 
 .scrolling-sidebar h5 {
-    margin: 0;
+    margin: 8px 0 0 0;
 }
 
 .scrolling-sidebar .current {
     background-color: #ffc;
+}
+
+#video_overlay {
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    width: 520px;
+}
+
+.subtitle {
+    display: block;
+    color: white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: url("../images/caption_bg.png");
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 3px;
+    text-shadow: 0px 2px 1px #000, -1px 3px 1px #000, -2px 2px 1px #000, -2px 1px 1px #000, -2px 0px 1px #000;
 }
