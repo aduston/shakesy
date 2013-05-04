@@ -9,6 +9,11 @@ CHARACTERS = {'1': models.Character(name="Barnardo", title="Barnardo", descripti
               '3': models.Character(name="Horatio", title="Horatio", description="Horatio"),
               '4': models.Character(name="Marcellus", title="Marcellus", description="Marcellus")}
 
+OUT_OF_SUBTITLE = 0
+SUBTITLE_NUMBER = 1
+SUBTITLE_TIME = 2
+SUBTITLE_FIRST_LINE = 3
+SUBTITLE_LINE = 4
 
 [c.save() for c in CHARACTERS.values()]
 CHARACTERS['0'] = None
@@ -21,10 +26,9 @@ class Command(BaseCommand):
 
         i = 0
         for orig_sub, contemp_sub in zip(original_subs, contemporary_subs):
-            print orig_sub
-            start = int(orig_sub[0]) * 36000 + int(orig_sub[1]) * 600 + int(orig_sub[2]) * 10 + int(orig_sub[3]) / 100.0
             print "Subtitle %d" % i
-            models.Subtitle(contemporary_text=contemp_sub[9], original_text=orig_sub[9], character=CHARACTERS[orig_sub[8]], start_time=start).save()
+            models.Subtitle(contemporary_text=contemp_sub['Line'],
+                    original_text=orig_sub['Line'], character=orig_sub['Character'], start_time=orig_sub['Time']).save()
             i += 1
 
     def _parse(self, file_name):
@@ -32,10 +36,42 @@ class Command(BaseCommand):
         with open(file_name, "r") as f:
             return self._parse_text(f.read())
 
+    def _parse_time(self, line):
+        time = 0
+        time_line = line.split(' --> ')[0]
+
+        h, m, s = time_line.split(":")
+        s, millisec = s.split(',')
+
+        time += (int(h) * 36000) + (int(m) * 600) + (int(s) * 10)
+        time += int(millisec) / 100.0
+        return time
+
     def _parse_text(self, text):
-        pattern = re.compile(self._pattern(), re.DOTALL)
-        match = pattern.findall(text)
-        return match
+        state = OUT_OF_SUBTITLE
+        subs = []
+        sub = dict()
+        sub['Line'] = ''
+        for line in text.splitlines():
+            if state == OUT_OF_SUBTITLE and line != '':
+                state = SUBTITLE_TIME
+            elif state == SUBTITLE_TIME:
+                sub['Time'] = self._parse_time(line)
+                state = SUBTITLE_FIRST_LINE
+            elif state == SUBTITLE_FIRST_LINE:
+                line2 = line.split(":")
+                sub['Character'] = CHARACTERS[line2[0]]
+                sub['Line'] += line2[1] + '\n'
+                state = SUBTITLE_LINE
+            elif state == SUBTITLE_LINE:
+                if line != '':
+                    sub['Line'] += line + '\n'
+                else:
+                    subs.append(sub)
+                    sub = dict()
+                    sub['Line'] = ''
+                    state = OUT_OF_SUBTITLE
+        return subs
 
 
     def _pattern(self):
