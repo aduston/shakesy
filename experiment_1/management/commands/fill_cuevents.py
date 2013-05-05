@@ -61,23 +61,16 @@ class Command(BaseCommand):
             elif state == SUBTITLE_FIRST_LINE:
                 line2 = line.split(":")
                 sub['Character'] = CHARACTERS[line2[0]]
-                sub['Line'] += line2[1] + '\n'
+                sub['Line'] += line2[1]
                 state = SUBTITLE_LINE
             elif state == SUBTITLE_LINE:
                 if line != '':
-                    sub['Line'] += line + '\n'
+                    sub['Line'] += '\n' + line
                 else:
                     subs.append(sub)
                     sub = dict()
                     sub['Line'] = ''
                     state = OUT_OF_SUBTITLE
+        if state != OUT_OF_SUBTITLE: # We still have a subtitle
+            subs.append(sub)
         return subs
-
-
-    def _pattern(self):
-        pattern = r'\d+\s*?\r?\n'
-        pattern += r'(?P<s_hour>\d{2}):(?P<s_min>\d{2}):(?P<s_sec>\d{2}),(?P<s_secfr>\d*)'
-        pattern += r' --> '
-        pattern += r'(?P<e_hour>\d{2}):(?P<e_min>\d{2}):(?P<e_sec>\d{2}),(?P<e_secfr>\d*)\r?'
-        pattern += r'\n(\d+):(?P<text>.+?)\r?\n'
-        return pattern
