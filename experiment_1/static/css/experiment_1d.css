@@ -1,19 +1,67 @@
+body {
+    background-image:url("../images/binding_light.png");
+}
+
+.container {
+    width:1024px;
+    margin:auto;
+}
+
+header {
+    height:60px;
+    background-color:#4A4A4A;
+    margin-bottom:18px;
+    border-bottom:#222 2px solid;
+}
+
+header h1 {
+    line-height:38px;
+    margin:0;
+    padding:11px 0;
+    font-size:32px;
+}
+
+header .logo {
+    display:inline-block;
+    background: url("../images/shakesy-logo.png");
+    height:60px;
+    width:245px;
+    border:0;
+    float:left;
+    background-repeat:no-repeat;
+}
+
+h3.breadcrumbs {
+    font-weight:normal;
+    color:rgba(0, 0, 0, 0.35);
+}
+
+h3.breadcrumbs a {
+    color:rgba(0, 0, 0, 0.65);    
+    text-decoration:underline;
+}
+h3.breadcrumbs a:hover {
+    text-decoration:none;
+    color:rgba(0, 0, 0, 1);        
+}
+
 .video {
     width: 650px;
     height: 480px;
     position: relative;
-    float: left;
+    float: right;
 }
 
 .video-sidebar {
-    margin-left: 650px;
 }
 
 .scrolling-sidebar {
-    width: 360px;
-    height: 480px;
+    width: 350px;
+    height: 460px;
     overflow-y: scroll;
     position: relative;
+    border:1px solid #eee;
+    padding:10px;
 }
 
 .scrolling-sidebar div {
@@ -26,6 +74,7 @@
 
 .scrolling-sidebar div:hover {
     cursor: pointer;
+    background-color:rgba(255, 255, 0, 0.10);
 }
 
 .scrolling-sidebar p {
@@ -37,8 +86,9 @@
     margin: 8px 0 0 0;
 }
 
+.scrolling-sidebar div.current:hover,
 .scrolling-sidebar .current {
-    background-color: #ffc;
+    background-color:rgba(255, 255, 0, 0.5);
 }
 
 #video_overlay {
